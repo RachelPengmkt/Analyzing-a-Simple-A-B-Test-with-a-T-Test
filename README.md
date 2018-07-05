@@ -1,12 +1,16 @@
 # Analyzing-a-Simple-A-B-Test-with-a-T-Test
-I includeed two methods of t tests that compare conversion rate and click through rate of control and experiment group
+I includeed two methods of t test to compare conversion rate and click through rate of control and experiment group
 
+### * What's the goal of the t-test analysis?
+	 - Compare the performance of two groups of ads on AdWords
+	 - Performance metrics to be compared: conversion rate (CR) and click through rate (CTR)
+	 - Two groups: control group and experiment group
 ### * What do the raw data look like?
 	 - Raw data file was downloaded from AdWords and it has data of conversions, clicks and impressions of each ad group for both control and experiment group
 	 - That means, before doing any analysis, we either need to aggregate data for perforamnce metrics first (method 1) or convert data to aother format (method 2)
 ### * What is the difference of the two methods?
-	 - Method 1 first aggregates data for each performance metric (conversions, clicks and impressions), and then calculates mean, standard deviation, t statistics and p value using match equations.
-	 - Method 2 converts raw data of performance metrics (conversions, clicks and impressions) to either 0 (didn't click or didn't convert) or 1 (clicked, converted or impression served) first, and then call scipy.stats.ttest_ind. to calculate t statistics, p value and uses numpy to calcualte standard deviation.
+	 - Method 1 first aggregates data for each performance metric (conversions, clicks and impressions), and then calculates conversion rate and click through rate, and next calculates mean, standard deviation, t statistics and p value using match equations.
+	 - Method 2 converts raw data of performance metrics (conversions, clicks and impressions) to either 0 (didn't click or didn't convert) or 1 (clicked, converted or impression served) first, then calcualte conversion rate and click through rate, and next call scipy.stats.ttest_ind. to calculate t statistics, p value and uses numpy to calcualte standard deviation.
      - Note that after data conversion, data under column "Impressions" should be all 1 (meaning inpression was served)
 ### * Which method do I like better?
      - I like method 2 better as it's quicker and easier. LOL. We don't have to calculate metrics using match equations
